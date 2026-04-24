@@ -70,7 +70,7 @@ resource "aws_instance" "private" {
     docker run -d \
       --name backend \
       --restart unless-stopped \
-      -e MONGO_URI=mongodb+srv://youtube:Krishgoswami271004@cluster0.h2oul08.mongodb.net/?appName=Cluster0 \
+      -e MONGO_URI=xxxxx \
       -e JWT_SECRET=shhh \
       -p 5000:5000 \
       krishsoh/youtube-backend:${var.docker_image_tag}
