@@ -1,0 +1,15 @@
+# General
+.DS_Store
+
+# Environments
+.env
+*.env
+Env.env
+
+# VSCode and IDEs
+.vscode/
+.idea/
+*.swp
+
+# Ignore log files
+*.log
