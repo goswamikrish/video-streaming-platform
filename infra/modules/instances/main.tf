@@ -27,7 +27,7 @@ resource "aws_instance" "public" {
       -p 3000:8080 \
       -e BACKEND_URL=http://${aws_instance.private.private_ip}:5000 \
       -e API_PROXY_URL=http://172.17.0.1:4000 \
-      krishsoh/youtube-frontend:latest
+      krishsoh/youtube-frontend:${var.docker_image_tag}
 
     # Pull and run API proxy container (port 4000)
     docker run -d \
@@ -36,7 +36,7 @@ resource "aws_instance" "public" {
       -e RAPIDAPI_KEY=70d5924dc9msh2ed264d34fc1f67p192788jsn3356317d075b \
       -e RAPIDAPI_HOST=youtube-v31.p.rapidapi.com \
       -p 4000:4000 \
-      krishsoh/youtube-api-proxy:latest
+      krishsoh/youtube-api-proxy:${var.docker_image_tag}
   EOF
 
   tags = {
@@ -73,7 +73,7 @@ resource "aws_instance" "private" {
       -e MONGO_URI=mongodb+srv://youtube:Krishgoswami271004@cluster0.h2oul08.mongodb.net/?appName=Cluster0 \
       -e JWT_SECRET=shhh \
       -p 5000:5000 \
-      krishsoh/youtube-backend:latest
+      krishsoh/youtube-backend:${var.docker_image_tag}
   EOF
 
   tags = {
