@@ -56,6 +56,7 @@ module "instances" {
   private_sg_id      = module.securitygrps.private_sg_id
   key_name           = "mywebserver-key"
   env                = "dev"
+  docker_image_tag   = var.docker_image_tag
 }
 
 # ─── OUTPUTS ─────────────────────────────────────────────────────────────────
